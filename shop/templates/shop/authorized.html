@@ -1,0 +1,28 @@
+{% extends "base_auth.html" %}
+{% load staticfiles %}
+{% block content %}
+<html>
+  <a href="{% url 'shop:allProdCat' %}">Back to Shopping Area</a>
+  <h1>Jewelry Store Administrator Page</h1>
+  <div class="table-responsive">
+    <caption><h3>Product Report</h3></caption>
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity in Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products_list %}
+      <tr>
+        <td><b>{{product.name}}</b></td>
+        <td><b>{{product.price}}</b></td>
+        <td><b>{{product.stock}}</b></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}
